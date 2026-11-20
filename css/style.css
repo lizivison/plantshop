@@ -1,0 +1,80 @@
+/* ==========================================================
+   css/style.css – Reset, Basis, Hilfsklassen, Buttons
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-heading);
+  color: var(--color-dark);
+  background-color: var(--color-white);
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* ---------- Hilfsklassen (im HTML verwendet) ---------- */
+
+.flex           { display: flex; }
+.align-center   { align-items: center; }
+.justify-center { justify-content: center; }
+
+/* Zahl = Stufe der Abstandsvariablen (--space-2 = 1rem, --space-4 = 2rem) */
+.px-2 { padding-inline: var(--space-2); }
+.px-4 { padding-inline: var(--space-4); }
+.py-4 { padding-block: var(--space-4); }
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.78em 1.45em;
+  border-radius: var(--radius);
+  font-family: var(--font-heading);
+  font-size: clamp(0.75rem, 1.25vw, 1.125rem);   /* 18px bei 1440px */
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--color-beige);
+  color: var(--color-dark);
+}
+
+.btn-primary:hover {
+  filter: brightness(90%);
+}
+
+/* ---------- Fokus ---------- */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-purple);
+  outline-offset: 3px;
+}
+
+.hero a:focus-visible,
+.hero button:focus-visible,
+.footer a:focus-visible {
+  outline-color: var(--color-focus);
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Naturzuhause</title>
+  <link rel="icon" type="image/x-icon" href="img/logo.png">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="assets/bootstrap-icons-1.13.2/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sections.css">
+
+</head>
+
+<body>
+  <header class="hero">
+    <nav class="flex align-center px-2">
+      <a aria-label="zur startseite" href="index.html"><img src="img/logo.png" alt=""></a>
+      <ul class="nav-links">
+        <li><a href="#about">Über Uns</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+      <div class="icons">
+        <button aria-label="suche"><i class="bi bi-search"></i></button>
+        <button aria-label="warenkorb"><i class="bi bi-cart-fill"></i></button>
+        <button aria-label="favoriten"><i class="bi bi-heart-fill"></i></button>
+      </div>
+      <button onclick="openNav()" class="hamburger" aria-label="Menü öffnen"><i class="bi bi-list"></i></button>
+
+      <!-- overlay (nur mobil sichtbar) -->
+      <div id="myNav" class="class overlay px-2 py-2 display-none">
+        <button onclick="closeNav()" class="closebtn" aria-label="Menü schließen"><i class="bi bi-x-lg"></i></button>
+        <div class="overlay-content flex">
+          <ul class="flex">
+            <li><a onclick="closeNav()" href="#about">Über Uns</a></li>
+            <li><a onclick="closeNav()" href="#kontakt">Kontakt</a></li>
+            <li><a onclick="closeNav()" href="#shop">Shop</a></li>
+            <li><a onclick="closeNav()" href="#blog">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="hero-content flex justify-center align-center">
+      <div class="cta flex">
+        <div class="cta-text">
+          <div>
+            <h1>Naturzuhause</h1>
+            <p class="subheading">Natürlich schön wohnen</p>
+          </div>
+          <p>Willkommen bei Naturzuhause – Ihrem Experten für stilvolle und pflegeleichte
+            Hauspflanzen. Entdecken Sie unsere vielfältige Auswahl und bringen Sie die
+            Schönheit der Natur in Ihr Zuhause!
+          </p>
+        </div>
+        <a href="#about" class="btn-primary btn">Mehr Erfahren</a>
+      </div>
+      <div class="img-container">
+        <img src="img/naturzuhause-hero.png" alt="">
+      </div>
+    </div>
+  </header>
+  <main>
+
+    <!-- card section -->
+    <section id="Products" class="card flex justify-content px-4 py-4">
+      <h2>Featured Products</h2>
+      <div class="card-container">
+        <article class="card">
+          <div>
+            <img src="img/smaragdschatz.jpg" alt="eine Kaktuspflanze im Tontopf">
+            <h3>Smaragdschatz</h3>
+            <p class="preis">€25</p>
+          </div>
+          <a href="#">zum Produkt<i class="bi-bi-arrow-right"></i></a>
+        </article>
+        <article class="card">
+          <div>
+            <img src="img/dschungeltraum.jpg" alt="ein kleiner kaktus rund im Tontopf">
+            <h3>Dschungeltraum</h3>
+            <p class="preis">€30</p>
+          </div>
+          <a href="">zum Produkt<i class="bi-bi-arrow-right"></i></a>
+        </article>
+        <article class="card">
+          <div>
+            <img src="img/sonnengruss.jpg" alt="ein Palmengewächs mit runden Blättern">
+            <h3>Sonnengruß</h3>
+            <p class="preis">€50</p>
+          </div>
+          <a href="#">zum Produkt<i class="bi-bi-arrow-right"></i></a>
+        </article>
+        <article class="card">
+          <div>
+            <img src="img/zen-garten.jpg" alt="zwei pflanzen in Holztöpfen">
+            <h3>Zen-Garten</h3>
+            <p class="preis">€35</p>
+          </div>
+          <a href="#">zum Produkt<i class="bi-bi-arrow-right"></i></a>
+        </article>
+        <article class="card">
+          <div>
+            <img src="img/blaetterpoesie.jpg" alt="zwei pflanzen mit rosa-grünen Blättern">
+            <h3>Blätterpoesie</h3>
+            <p class="preis">€65</p>
+          </div>
+          <a href="#">zum Produkt<i class="bi-bi-arrow-right"></i></a>
+        </article>
+        <article class="card">
+          <div>
+            <img src="img/gruenes-wunder.jpg" alt="stachelige robuste pflanze">
+            <h3>Grünes Wunder</h3>
+            <p class="preis">€60</p>
+          </div>
+          <a href="#">zum Produkt<i class="bi-bi-arrow-right"></i></a>
+        </article>
+    </section>
+    <!-- über Uns -->
+    <section id="about" class="about flex justify-center align-center px-4 py-4">
+      <div>
+        <img src="img/naturzuhause-ueber-uns.png" alt="eine person im gewächshaus">
+      </div>
+      <div class="about text">
+        <h2>Über uns</h2>
+
+      </div>
+      <div>
+        <p>Bei Naturzuhause sind wir davon überzeugt, dass Pflanzen das Wohlbefinden steigern und jedem Raum eine
+          besondere Atmosphäre verleihen. Unser Ziel ist es, Ihnen hochwertige und pflegeleichte Pflanzen anzubieten,
+          die Ihrem Zuhause nicht nur eine grüne Note verleihen, sondern auch Ihre Lebensqualität verbessern.
+        </p>
+        <p>Unser Team besteht aus leidenschaftlichen Pflanzenliebhabern, die über umfangreiches Wissen und Erfahrung in
+          der Pflege und Auswahl der besten Pflanzen verfügen. Wir wählen unsere Pflanzen sorgfältig aus und achten
+          darauf, dass sie unter optimalen Bedingungen gedeihen, bevor sie den Weg zu Ihnen nach Hause finden.
+        </p>
+        <p>Egal, ob Sie ein erfahrener Pflanzenprofi oder ein Anfänger sind, wir stehen Ihnen mit Rat und Tat zur Seite.
+          Auf unserer Website finden Sie hilfreiche Pflegehinweise und Tipps, damit Ihre Pflanzen lange gesund und schön
+          bleiben.</p>
+        <p>Mit Naturzuhause möchten wir Ihnen nicht nur Pflanzen, sondern auch ein Stück Natur und Freude in Ihr Zuhause
+          bringen. Lassen Sie sich von unserer Leidenschaft anstecken und entdecken Sie die Welt der Hauspflanzen auf
+          eine neue Art und Weise.</p>
+      </div>
+    </section>
+    <!-- grid section -->
+    <section id="galerie">
+      <div class="grid">
+        <div class="item a"><img src="img/grid-image-1.jpg" alt="Klavier mit Zimmerpflanzen"></div>
+        <div class="item b"><img src="img/grid-image-2.jpg" alt="Pflanzen an einer Treppe"></div>
+        <div class="item text">
+          <p>Grüner leben,<br>schöner wohnen.</p>
+        </div>
+        <div class="item c"><img src="img/grid-image-4.jpg" alt="Rankpflanzen an einer Wand"></div>
+        <div class="item d"><img src="img/grid-image-5.jpg" alt="Dusche mit Pflanzen"></div>
+        <div class="item e"><img src="img/grid-image-6.jpg" alt="Esstisch mit Hängepflanzen"></div>
+        <div class="item f"><img src="img/grid-image-7.jpg" alt="Schreibtisch mit Pflanze"></div>
+      </div>
+    </section>
+
+    <!-- contact section -->
+    <section id="kontakt" class="kontakt">
+      <div class="kontakt__inhalt">
+
+        <div class="kontakt__formular">
+          <h2>Fragen?</h2>
+          <p class="untertitel">Nimm Kontakt zu uns auf.</p>
+
+          <form action="#" method="post">
+            <div class="feld">
+              <label for="name">Vorname &amp; Nachname</label>
+              <input type="text" id="name" name="name" placeholder="Vorname &amp; Nachname" autocomplete="name">
+            </div>
+
+            <div class="feld">
+              <label for="email">E-Mail Adresse</label>
+              <input type="email" id="email" name="email" placeholder="E-Mail Adresse" autocomplete="email">
+            </div>
+
+            <div class="feld">
+              <label for="nachricht">Nachricht</label>
+              <textarea id="nachricht" name="nachricht" placeholder="Ihre Nachricht"></textarea>
+            </div>
+
+            <button type="submit" class="button">
+              Abschicken
+            </button>
+          </form>
+        </div>
+
+        <div class="kontakt_bild">
+          <img src="img/naturzuhause-form.jpg" alt="Monstera-Pflanze mit großen, glänzenden Blättern">
+        </div>
+
+      </div>
+    </section>
+
+
+  </main>
+
+
+  <footer id="socials
+" class="footer">
+    <div class="footer__inner">
+
+      <div class="footer__spalte">
+        <h2 class="footer__titel">Kontakt</h2>
+        <address>
+          Frankfurter Tor 93<br>
+          10243 Berlin
+        </address>
+        <p>
+          <a href="tel:+49191234567">0191 23 45 67</a><br>
+          <a href="mailto:info@natur.com">info@natur.com</a>
+        </p>
+      </div>
+
+      <div class="footer__spalte">
+        <h2 class="footer__titel">Rechtliches</h2>
+        <ul class="footer__rechtliches">
+          <li><a href="#datenschutz">Datenschutz</a></li>
+          <li><a href="#impressum">Impressum</a></li>
+        </ul>
+      </div>
+
+      <ul class="footer__social">
+        <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a></li>
+        <li><a href="#" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="#" aria-label="Pinterest"><i class="bi bi-pinterest" aria-hidden="true"></i></a></li>
+      </ul>
+
+    </div>
+  </footer>
+  <script>
+    function openNav() {
+      document.getElementById("myNav").classList.add("display-block");
+      document.querySelector("main").style.filter= "brightness(45%)";
+      document.querySelector("body").style.overflow= "hidden";
+    }
+    function closeNav() {
+      document.getElementById("myNav").classList.remove("display-block");
+      document.querySelector("main").style.filter="brightness(100%)";
+      document.querySelector("body").style.overflow="visible";
+    }
+  </script>
+</body>
+
+</html>

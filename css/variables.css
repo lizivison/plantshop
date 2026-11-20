@@ -1,0 +1,38 @@
+/* ==========================================================
+   css/variables.css – Farben, Schriften, Abstände
+   ========================================================== */
+
+:root {
+  /* Farben */
+  --color-green: #3b7e71;
+  /* Header und Hero */
+  --color-mint: #d2eae5;
+  /* Über uns, Kontakt */
+  --color-dark: #1d180b;
+  /* Text, Collage-Textbox, Footer */
+  --color-white: #fcfbf8;
+  --color-purple: #602783;
+  /* Produkt- und Formular-Buttons */
+  --color-purple-dark: #4a1e66;
+  /* Hover */
+  --color-beige: #d0ba86;
+  /* Hero-Button */
+  --color-input: #fcfbf8;
+  /* Formularfelder */
+  --color-focus: #d0ba86;
+  /* Fokus auf grünem Hintergrund */
+
+  /* Schriften */
+  --font-heading: "Poppins", Arial, sans-serif;
+  --font-text: "Lora", Georgia, "Times New Roman", serif;
+
+  --space-1: 1rem;
+  --space-2: 2rem;
+  --space-3: 3rem;
+  --space-4: 4rem;
+  --space-5: 5rem;
+  --space-6: 6rem;
+ 
+  --radius: 2px;
+  --container: 1440px;           /* Desktop-Breite im Figma-Frame */
+}

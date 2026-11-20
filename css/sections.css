@@ -1,0 +1,754 @@
+
+
+article.card>a,
+.kontakt .button {
+  border-radius: var(--radius);
+  background-color: var(--color-purple);
+  color: var(--color-white);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+article.card>a:hover,
+.kontakt .button:hover {
+  background-color: var(--color-purple-dark);
+}
+
+
+/* ==========================================================
+   1. Header und Navigation
+   ========================================================== */
+
+.hero {
+  background-color: var(--color-green);
+  color: var(--color-white);
+}
+
+/* Dreispaltig: Logo | Navigation (exakt mittig) | Icons */
+.hero nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  max-width: var(--container);
+  min-height: clamp(72px, 9.44vw, 136px);
+  /* ca. 136px bei 1440px */
+  margin: 0 auto;
+  padding: 0 clamp(12px, 2.15vw, 31px) 0 clamp(16px, 3.82vw, 55px);
+}
+
+.hero nav>a {
+  display: flex;
+  justify-self: start;
+}
+
+.hero nav>a img {
+  width: clamp(40px, 4.5vw, 65px);
+  height: auto;
+}
+
+/* Klasse statt "nav ul": trifft nur die Hauptnavigation,
+   nicht die Liste im Overlay */
+.nav-links {
+  display: flex;
+  gap: clamp(16px, 2.2vw, 32px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links a {
+  color: inherit;
+  font-size: clamp(0.75rem, 1.25vw, 1.125rem);
+  /* ca. 18px bei 1440px */
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.icons {
+  display: flex;
+  justify-self: end;
+  gap: clamp(10px, 1.25vw, 18px);
+}
+
+.icons button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: clamp(14px, 1.8vw, 26px);
+  /* ca. 26px bei 1440px */
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (width <576px) {
+
+  /* Zwei Spalten: Logo links, Hamburger rechts.
+     Links und Icons erscheinen nur noch im Overlay. */
+  .hero nav {
+    grid-template-columns: 1fr auto;
+  }
+
+  .nav-links,
+  .icons {
+    display: none;
+  }
+}
+
+
+/* ==========================================================
+   2. Mobiles Menü
+   Außerhalb der Smartphone-Query bleiben Hamburger und Overlay
+   verborgen. Das Overlay wird per JS mit der Klasse
+   "display-block" eingeblendet.
+   ========================================================== */
+
+.hamburger,
+.overlay {
+  display: none;
+}
+
+@media (width < 576px) {
+
+  .hamburger {
+    display: block;
+    justify-self: end;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--color-white);
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .overlay.display-block {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100svh;
+    background-color: var(--color-green);
+  }
+
+  .overlay .closebtn {
+    align-self: flex-end;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--color-white);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .overlay-content {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .overlay-content ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .overlay-content a {
+    color: var(--color-white);
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+
+  .overlay-content a:hover,
+  .overlay-content a:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+
+  /* .hero davor: sonst gewinnt die allgemeine Regel
+     ".hero button:focus-visible" aus style.css */
+  .hero .hamburger:focus-visible,
+  .hero .closebtn:focus-visible {
+    outline: 3px solid var(--color-white);
+    outline-offset: 4px;
+  }
+}
+
+
+/* ==========================================================
+   3. Hero
+   ========================================================== */
+
+/* Links und rechts je ca. 244px Rand, unter dem Bild ca. 157px Grün */
+.hero .hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(8px, 1.45vw, 21px) min(16.9%, 244px) clamp(56px, 10.9vw, 157px);
+}
+
+/* Text und Button untereinander, linksbündig */
+.hero .cta {
+  flex: 0 1 36.4%;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.75rem, 3.33vw, 3rem);
+  /* 48px bei 1440px */
+  line-height: 1.15;
+  text-decoration: underline;
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.12em;
+}
+
+.hero .subheading {
+  margin: 0 0 24px;
+  font-size: clamp(0.875rem, 1.67vw, 1.5rem);
+  /* 24px bei 1440px */
+  font-style: italic;
+  font-weight: 300;
+}
+
+.hero .cta-text>p {
+  margin: 0 0 40px;
+  font-family: var(--font-text);
+  font-size: clamp(0.8125rem, 1.11vw, 1rem);
+  /* 16px bei 1440px */
+  line-height: 1.5;
+}
+
+/* Bild: ca. 364 x 535px bei 1440px (Hochformat) */
+.hero .img-container {
+  flex: 0 1 40%;
+  aspect-ratio: 364 / 535;
+}
+
+.hero .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (width <=992px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width < 576px) {
+
+  /* Foto als Hintergrund mit Abdunklung, Text zentriert */
+  .hero .hero-content {
+    position: relative;
+    z-index: 0;
+    justify-content: center;
+    min-height: 576px;
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  .hero .img-container {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    flex: none;
+    aspect-ratio: auto;
+  }
+
+  .hero .img-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Deckkraft geschätzt */
+  }
+
+  .hero .cta {
+    flex: 0 1 301px;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero .subheading {
+    font-size: 1.25rem;
+  }
+
+  .hero .cta-text>p {
+    font-size: 0.875rem;
+  }
+
+  .hero .btn {
+    font-size: 1.125rem;
+  }
+}
+
+
+/* ==========================================================
+   4. Featured Products
+   Section und Artikel tragen im HTML beide die Klasse "card".
+   Deshalb werden sie hier über den Elementnamen getrennt.
+   Die Überschriftsgröße (h2) kommt aus style.css.
+   ========================================================== */
+
+section.card {
+  display: block;
+  padding: clamp(48px, 8.9vw, 128px) var(--space-2);
+}
+
+section.card>h2,
+section.card .card-container {
+  width: min(1161px, 100%);
+  margin-inline: auto;
+}
+
+section.card>h2 {
+  margin-block: 0 clamp(24px, 2.9vw, 42px);
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: clamp(24px, 4.8vw, 69px);
+  row-gap: clamp(24px, 4.9vw, 71px);
+}
+
+article.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  background-color: var(--color-white);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+article.card>div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+}
+
+article.card img {
+  grid-column: 1 / -1;
+  width: 100%;
+  object-fit: cover;
+}
+
+article.card h3,
+article.card .preis {
+  margin: 0.9rem 0 0;
+  font-size: clamp(0.875rem, 1.4vw, 1.25rem);
+  font-weight: 600;
+}
+
+article.card h3 {
+  padding-left: 1rem;
+}
+
+article.card .preis {
+  padding-right: 1rem;
+}
+
+/* Farbe, Radius, Hover: siehe "violette Buttons" oben */
+article.card>a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  margin: 0 1rem;
+  padding: 0.6rem;
+  font-size: clamp(0.75rem, 1.1vw, 1rem);
+}
+
+
+
+@media (width < 576px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  section.card>h2 {
+    font-size: 2.125rem;
+  }
+}
+
+
+/* ==========================================================
+   5. Über uns
+   Das HTML hat drei Kindelemente (Bild | Überschrift | Text).
+   Per Grid stehen Überschrift und Text in der rechten Spalte,
+   das Bild links über beide Zeilen. Die Klasse "about" steckt
+   im HTML auch am inneren div, daher der Elementname.
+   ========================================================== */
+
+section.about {
+  display: grid;
+  grid-template-columns: minmax(0, 406px) minmax(0, 563px);
+  grid-template-rows: auto 1fr;
+  align-items: start;
+  align-content: center;
+  justify-content: center;
+  column-gap: clamp(32px, 6.7vw, 96px);
+  padding: clamp(48px, 8.3vw, 120px) var(--space-2);
+  background-color: var(--color-mint);
+}
+
+section.about>div:first-child {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+section.about>div:first-child img {
+  width: 100%;
+  aspect-ratio: 406 / 574;
+  object-fit: cover;
+}
+
+div.about {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+section.about>div:last-child {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+section.about h2 {
+  margin: 0 0 1.5rem;
+}
+
+section.about p {
+  margin: 0 0 1.5rem;
+  font-family: var(--font-text);
+  font-size: clamp(0.875rem, 1.11vw, 1rem);
+  line-height: 1.5;
+}
+
+@media (width <=992px) {
+  section.about {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    row-gap: 1.5rem;
+  }
+
+  section.about>div:first-child,
+  div.about,
+  section.about>div:last-child {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  section.about>div:first-child {
+    width: min(406px, 100%);
+    margin-inline: auto;
+  }
+}
+
+
+/* ==========================================================
+   6. Bildercollage "Grüner leben, schöner wohnen."
+   4 Spalten, 3 Zeilen. Zeile 1 ist etwa doppelt so hoch wie
+   die Zeilen 2 und 3. Die Reihenfolge im HTML (a, b, text,
+   c, d, e, f) bleibt über grid-template-areas erhalten.
+   ========================================================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 190fr 87fr 85fr;
+  grid-template-areas:
+    "a b t t"
+    "c c d f"
+    "c c d e";
+  gap: clamp(8px, 1.25vw, 18px);
+  width: min(1018px, calc(100% - 2 * var(--space-2)));
+  aspect-ratio: 546 / 384;
+  margin: clamp(48px, 6.9vw, 100px) auto;
+}
+
+.item {
+  min-width: 0;
+  min-height: 0;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item.a {
+  grid-area: a;
+}
+
+.item.b {
+  grid-area: b;
+}
+
+.item.c {
+  grid-area: c;
+}
+
+.item.d {
+  grid-area: d;
+}
+
+.item.e {
+  grid-area: e;
+}
+
+.item.f {
+  grid-area: f;
+}
+
+.item.text {
+  grid-area: t;
+  display: flex;
+  align-items: center;
+  padding-left: clamp(16px, 6.1vw, 88px);
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.item.text p {
+  margin: 0;
+  font-size: clamp(1rem, 2.1vw, 1.875rem);
+  /* ca. 30px bei 1440px */
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+@media (width <=992px) {
+
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+    grid-template-areas: none;
+    aspect-ratio: auto;
+  }
+
+  .grid .item {
+    grid-area: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .item.text {
+    grid-column: 1 / -1;
+    aspect-ratio: auto;
+    min-height: 140px;
+  }
+}
+
+@media (width < 576px) {
+
+  /* einspaltig (laut Übungsaufgabe); die Textbox bleibt mit
+     "1 / -1" automatisch einspaltig */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+.kontakt {
+  padding: clamp(48px, 6.9vw, 99px) var(--space-2);
+  background-color: var(--color-mint);
+}
+
+.kontakt__inhalt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(32px, 6.9vw, 99px);
+  max-width: 929px;
+  margin: 0 auto;
+}
+
+.kontakt__formular {
+  flex: 0 1 425px;
+  min-width: 0;
+}
+
+.kontakt__formular h2 {
+  margin: 0;
+}
+
+.untertitel {
+  margin: 0.25rem 0 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+.feld {
+  margin-bottom: 1.75rem;
+}
+
+.feld label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+.feld input,
+.feld textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 0;
+  border-radius: var(--radius);
+  background-color: var(--color-input);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  color: var(--color-dark);
+  font-family: var(--font-text);
+  font-size: 0.875rem;
+}
+
+.feld textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+/* Farbe, Radius, Hover: siehe "violette Buttons" oben */
+.kontakt .button {
+  width: 100%;
+  padding: 1.1rem;
+  border: 0;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.kontakt_bild {
+  flex: 0 1 405px;
+  aspect-ratio: 405 / 606;
+  min-width: 0;
+}
+
+.kontakt_bild img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (width <=992px) {
+  .kontakt__inhalt {
+    flex-direction: column;
+  }
+
+  .kontakt__formular,
+  .kontakt_bild {
+    flex: none;
+    width: min(425px, 100%);
+  }
+}
+
+
+/* ==========================================================
+   8. Footer
+   Maße aus dem Figma-Ausschnitt (Frame 1440px) umgerechnet:
+   Innenabstand ca. 96px, Abstand zwischen den Spalten ca. 80px,
+   Social-Icons ca. 40px mit ca. 40px Abstand.
+   Der Fokus-Stil (.footer a:focus-visible) steht in style.css.
+   ========================================================== */
+
+.footer {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: clamp(32px, 5.56vw, 80px);
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(48px, 6.67vw, 96px) clamp(24px, 6.67vw, 96px);
+}
+
+.footer__titel {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.footer address,
+.footer p,
+.footer ul {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: 1rem;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.footer address {
+  margin-bottom: 0.5rem;
+}
+
+.footer ul {
+  padding: 0;
+  list-style: none;
+}
+
+.footer__rechtliches li+li {
+  margin-top: 0.5rem;
+}
+
+.footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ".footer" davor: sonst gewinnt ".footer ul" (font-size 1rem)
+   gegen die Icon-Größe */
+.footer .footer__social {
+  display: flex;
+  gap: 40px;
+  font-size: 2.5rem;
+  /* Icons ca. 40px */
+  line-height: 1;
+}
+
+.footer__social a:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+/* Smartphone: Spalten untereinander (im Figma-Ausschnitt nicht vorgegeben: Annahme) */
+@media (width < 576px) {
+  .footer__inner {
+    flex-direction: column;
+  }
+}
